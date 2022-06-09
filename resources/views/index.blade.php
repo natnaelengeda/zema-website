@@ -116,34 +116,38 @@
     </div> <!-- Third Section End-->
     <hr>
     <div class="p-10"><!-- Fourth Section -->
-        <div class="w-[70%] m-auto boor p-10 rounded-lg">
-            <form class="flex" action="">
-                <div class="boor ">
-                    <div class="boor w-auto justify-center">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                    <p> Addis Ababa, Ethiopia</p>
-                    <p>Haile Street, 530</p>
+        <div class="w-[80%] flex m-auto border border-gray-300 p-14 rounded-2xl shadow-lg">
+            
+                <div class="w-1/3 border-r border-gray-400 px-10">
+                    <div class="w-auto my-5">
+                    <svg class="w-10 h-11 flex justify-center m-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                    <p class="text-center"> Addis Ababa, Ethiopia</p>
+                    <p class="text-center">Haile Street, 530</p>
                     </div>
-                    <div>
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-                    <p>+2500000000000</p>
-                    <p>+2500000000000</p>
+                    <div class="my-5">
+                    <svg class="w-10  m-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                    <p class="text-center">+2500000000000</p>
+                    <p class="text-center">+2500000000000</p>
                     </div>
-                    <div>
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-                    <p>nattynengeda@gmail.com</p>    
+                    <div class="my-5">
+                    <svg class="w-10 m-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    <p class="text-center">nattynengeda@gmail.com</p>    
                     </div>
                 </div>
-                <div>
-                    <h1>Send Us a message</h1>
-                    <input type="text" name="name">
-                    <input type="email" name="email">
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-
-                </div>
-            </form>
+                <div class="px-10 w-full -mt-7">
+                <form class="grid gap-3 grid-cols-1 " action="">
+                    <h1 class="text-2xl mx-2">Send Us a message</h1>
+                    <input class="border border-gray-400 bg-gray-100 h-12 rounded-xl w-[100%] text-xl px-5" type="text" name="name" placeholder="Enter your name">
+                    <input class="border border-gray-400 bg-gray-100 h-12 rounded-xl w-[100%] text-xl px-5" type="email" name="email" placeholder="Enter your email">
+                    <textarea class="border border-gray-400 bg-gray-100  rounded-xl w-[100%] h-44 text-xl px-5 py-2" name="" id="" cols="30" rows="10" placeholder="Enter your Message"></textarea>
+                    <input class="border border-gray-900 bg-black w-28 h-12 rounded-xl text-white text-xl cursor-pointer" type="submit" value="Send">
+                </form>
+               </div>
         </div>
-
+           
     </div><!-- Fourth Section End -->
+    <div><!-- Fifth Section -->
+
+    </div><!-- Fifth Section End-->
 </div>
 @endsection
