@@ -147,7 +147,46 @@
            
     </div><!-- Fourth Section End -->
     <div><!-- Fifth Section -->
+        <div class="w-full boor h-72 bg-footer flex justify-center">
+                <div class=" w-1/2 flex text-white my-5">
+                    <div class="w-16 mx-10">
+                        <img src="imgs/icon/icon.png" alt="Zema Icon"> 
+                    </div>
+                    <div class="w-auto">
+                    <p class="text-lg my-1 ">Zema Audio Streaming Platform</p>
+                    <p class="text-sm">F.A.Q.</p>
+                    <p class="text-sm">Help</p>
+                    </div>
+                    <div class="mx-10">
+                    <p class="text-lg my-1">Produts</p>
+                    <p class="text-sm">Product 1</p>
+                    <p class="text-sm">Product 2</p>
+                    <p class="text-sm">Product 3</p>
+                    <p class="text-sm">Product 4</p>
+                    </div>
+                    <div class="mx-10">
+                    <p class="text-lg my-1">Compay</p>
+                    <p class="text-sm">Product 1</p>
+                    <p class="text-sm">Product 2</p>
+                    <p class="text-sm">Product 3</p>
+                    <p class="text-sm">Product 4</p>
+                    </div>
 
+                </div>
+                <div class=" w-1/3 text-white m-5 mx-32">
+                                <div class=" flex gap-3">
+                                <p>blog</p>
+                                <p>facebook</p>
+                                <p>instagram</p>
+                                <p>linkedin</p>
+                                </div>
+                                <div class="relative w-full text-sm text-right mx-10 mt-52">
+                                <p>Copyright @2022 Zema Audio Streaming Platform</p>
+                                </div>
+
+                                
+                </div>
+        </div>
     </div><!-- Fifth Section End-->
 </div>
 @endsection
