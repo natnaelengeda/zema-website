@@ -77,7 +77,34 @@
             </div>
             <hr class="border border-gray-400">
             <div class="boor h-96">
-
+                <div>
+                    <h1 class="font-bold text-3xl m-3 mx-5">#Tops</h1>
+                </div>
+                <table class="boor w-full">
+                    <tr>
+                
+                        <th><p>#</p></th>
+                        <th><p>Title</p></th>
+                        <th><p>Playing</p></th>
+                        <th><p>Time</p></th>
+                        <th><p>Album</p></th>
+                    </tr>
+                    <tr>
+                        <td class="ml-3">1. </td>
+                        <td class="ml-10">
+                            <div class="flex items-center">
+                            <img class="w-12" src="imgs/other/album.jpg" alt="Album Art">
+                            <p class="mx-5">Lingerish</p>
+                        </div></td>
+                        <td><p>00,000</p></td>
+                        <td><p>3:20</p></td>
+                        <td><p>Reflection</p></td>
+                    </tr>
+                </table>
+            
+            
+            
+            
             </div>
 
 
