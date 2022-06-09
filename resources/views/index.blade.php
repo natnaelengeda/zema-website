@@ -1,7 +1,7 @@
 @extends('header.head')
 
 @section('index')
-<div> 
+<div class="scrollbar-thin mt-5"> 
     <div class="h-auto flex justify-between pb-10"><!-- First Section -->
         <div class=" h-full px-20 py-5">
             <div class=" border-gray-100 border-r-7 w-96 h-56 flex items-center rounded-2xl shadow-lg">

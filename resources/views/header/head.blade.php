@@ -10,8 +10,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Zema</title>
 </head>
-<body>
-    <header class="flex justify-between items-center h-20 border-1 border-gray-200 shadow-lg">
+<body class="scrollbar-thin scrollbar-thumb-maincolor scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
+    <header class="flex justify-between items-center h-20 border-1 border-gray-200 shadow-lg z-10">
         <div class="w-auto flex justify-start items-center ml-10">
             <div class="ml-4 cursor-pointer">
                 <img class="w-20" src="imgs/icon/icon.png" alt="Main Icon">
@@ -21,15 +21,16 @@
             </div>
         </div>
         <div class="flex justify-between items-center mr-10">
-            <a class="toplinks borderright" href="/">Homes</a>
-            <a class="toplinks borderright" href="#">News</a>
+            <a class="toplinks borderright" href="/home">Home</a>
+            <a class="toplinks borderright" href="/news">News</a>
             <a class="toplinks borderright" href="#">Artist</a>
             <a class="toplinks borderright" href="#">About</a>
             <a class="toplinks" href="#">Contact </a>
         </div>
     </header>
-    <main class="mt-5">
+    <main class=" scrollbar-thin">
         @yield('index')
+        @yield('home')
     </main>
 </body>
 </html>
