@@ -1,7 +1,5 @@
-@extends('header.head')
-
-@section('index')
-<div class="scrollbar-thin mt-5"> 
+<x-header/>
+<div class="relative"> 
     <div class="h-auto flex justify-between pb-10"><!-- First Section -->
         <div class=" h-full px-20 py-5">
             <div class=" border-gray-100 border-r-7 w-96 h-56 flex items-center rounded-2xl shadow-lg">
@@ -115,7 +113,7 @@
         </div>
     </div> <!-- Third Section End-->
     <hr>
-    <div class="p-10"><!-- Fourth Section -->
+    <div id="contact" class="p-10"><!-- Fourth Section -->
         <div class="w-[80%] flex m-auto border border-gray-300 p-14 rounded-2xl shadow-lg">
             
                 <div class="w-1/3 border-r border-gray-400 px-10">
@@ -147,7 +145,7 @@
            
     </div><!-- Fourth Section End -->
     <div><!-- Fifth Section -->
-        <div class="w-full boor h-72 bg-footer flex justify-center">
+        <div class="w-full h-72 bg-footer flex justify-center">
                 <div class=" w-1/2 flex text-white my-5">
                     <div class="w-16 mx-10">
                         <img src="imgs/icon/icon.png" alt="Zema Icon"> 
@@ -189,4 +187,3 @@
         </div>
     </div><!-- Fifth Section End-->
 </div>
-@endsection

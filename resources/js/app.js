@@ -1,3 +1,10 @@
 require('./bootstrap');
+$(function(){
+    
+var zmain = $('#zemamain');  // Main Zema Icon
 
-var playhide = querySelector('.');
+zmain.on("click",function(e){
+    window.location = "/";
+}); 
+
+});
