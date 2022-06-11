@@ -17,7 +17,10 @@
                 <a class="text-center text-sm text-gray-400 hover:text-maincolor" href="#">Forgot password?</a>
                 </div>
                 <div class="flex justify-center mt-5">
-                <input class=" w-32 h-12 text-white bg-maincolor rounded-xl cursor-pointer shadow-md hover:shadow-xl" type="submit">
+                <input class=" w-32 h-12 text-white bg-maincolor rounded-xl cursor-pointer shadow-md hover:shadow-xl" type="submit" value="Login">
+                </div>
+                <div class="flex justify-end mt-5">
+                    <p class="text-gray-400 text-sm">Don't have an accout? <a href="#" class="text-maincolor underline border-b border-maincolor">Signup</a></p>
                 </div>
             </form>
             </div>
