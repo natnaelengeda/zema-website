@@ -66,7 +66,7 @@
                 </table>
         </div> 
         </div>
-        <div class="border-l border-gray-400 w-[20%] py-6 fixed left-[80%] z-40 bg-white"> <!-- Right Menu Bar -->
+        <div class="border-l border-gray-400 w-[20%] py-6 fixed left-[80%] z-20 bg-white"> <!-- Right Menu Bar -->
             <div class="mx-5 mb-5">
                 <p class="font-bold text-2xl">Recently Played</p>
             </div>
