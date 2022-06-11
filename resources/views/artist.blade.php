@@ -6,7 +6,7 @@
                         <div class="m-3">
                             <p class="text-2xl font-bold">Top on the Chart</p>
                         </div>
-                    <div class=" flex items-center overflow-x-visible"> <!-- Sliding Part -->
+                    <div class=" flex items-center  overflow-x-visible scrollbar-thin  scroll-smooth scrollbar-thumb-maincolor"> <!-- Sliding Part -->
                             @for($i=1; $i <= 5 ; $i++)
                             <div class="w-auto"> <!-- The Box Part-->
                                 <div>

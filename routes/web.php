@@ -18,3 +18,5 @@ Route::get('/home', [MainController::class, 'home']);
 Route::get('/news', [MainController::class, 'news']);
 Route::get('/artist',[MainController::class, 'artist']);
 Route::get('/about', [MainController::class, 'about']);
+Route::get('/login', [MainController::class, 'login']);
+Route::get('/signup', [MainController::class, 'signup']);
