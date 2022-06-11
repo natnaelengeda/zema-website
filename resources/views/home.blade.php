@@ -1,4 +1,6 @@
-<x-header/>
+@extends('layouts.app')
+
+@section('home')
 <div class="">
     <div class="flex relative">
         <x-sidebar/>
@@ -88,3 +90,4 @@
         </div>
     </div>
 </div>
+@endsection

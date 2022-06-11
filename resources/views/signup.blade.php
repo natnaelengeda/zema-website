@@ -1,4 +1,6 @@
-<x-header/>
+@extends('layouts.app')
+
+@section('signup')
 <div class="flex  w-[55%] m-auto mt-10 mb-10  border border-gray-100 shadow-lg">
     <div class="w-1/2  bg-gray-300 ">
             <img class="relative w-full h-full object-cover" src="imgs/randimgs/musicimg.jpg" alt="Music Image">
@@ -8,7 +10,9 @@
 
             <h1 class="text-center mt-7 text-xl font-bold text-gray-400">Welcome to Zema</h1>
             <div class="w-[90%] m-auto mt-10 h-auto">
-            <form action="">
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    
                 <div class="flex justify-evenly gap-5">
                     <div class="">
                         <p class="text-gray-400 my-1 text-sm">First Name</p>
@@ -30,7 +34,7 @@
                 <p class="text-gray-400 my-1 mt-2 text-sm">Phone Number</p>
                 <input class="w-full bg-white text-black  outline-none border-b border-gray-500 h-10" type="text">
                 
-                
+                 
                 <p class="text-gray-400 my-1 mt-2 text-sm">Password</p>
                 <input class="w-full bg-white text-black  outline-none border-b border-gray-500 h-10" type="password">
                 
@@ -45,3 +49,4 @@
             </div>
     </div>
 </div>
+@endsection

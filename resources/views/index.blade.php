@@ -1,4 +1,6 @@
-<x-header/>
+@extends('layouts.app')
+
+@section('index')
 <div class="relative"> 
     <div class="h-auto flex justify-between pb-10"><!-- First Section -->
         <div class=" h-full px-20 py-5">
@@ -187,3 +189,4 @@
         </div>
     </div><!-- Fifth Section End-->
 </div>
+@endsection

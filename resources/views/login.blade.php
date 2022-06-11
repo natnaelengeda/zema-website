@@ -1,4 +1,6 @@
-<x-header/>
+@extends('layouts.app')
+
+@section('login')
 <div class="flex items-center  w-[55%] m-auto mt-10  h-[30rem] border border-gray-100 shadow-lg">
     <div class="w-1/2 relative  h-full overflow-hidden">
         <img class="w-auto h-full" src="imgs/randimgs/musicimg.jpg" alt="Music Image">
@@ -26,3 +28,4 @@
             </div>
     </div>
 </div>
+@endsection

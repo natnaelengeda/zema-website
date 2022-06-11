@@ -1,4 +1,6 @@
-<x-header/>
+@extends('layouts.app')
+
+@section('artist')
     <div>
     <x-sidebar/>
             <div class="px-5 absolute left-[20%] w-full h-auto bg-gray-100 py-10">
@@ -58,3 +60,4 @@
             </div>
            
     </div>
+@endsection

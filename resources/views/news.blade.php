@@ -1,4 +1,6 @@
-<x-header/>
+@extends('layouts.app')
+
+@section('news')
     <div class="mt-5">
             <div>
                 <h1 class="text-center text-4xl">Latest</h1>
@@ -41,3 +43,4 @@
                 
             </div>
     </div>
+@endsection
