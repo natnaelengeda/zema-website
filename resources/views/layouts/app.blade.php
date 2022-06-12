@@ -10,12 +10,61 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fascinate&display=swap" rel="stylesheet">
+        
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+        {{-- <link rel="stylesheet" href="/vcss/app.css"> --}}
+        {{-- <link rel="stylesheet" href="{{ URL::asset('vcss/css.css'); }}"> --}}
+        {{-- <link rel="stylesheet" href="{{ asset('vcss/css.css')}}"> --}}
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <style>
+          <style>
+    
+            
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+    </style>
+        
     </head>
     <body class="font-sans antialiased scrollbar-thin scrollbar-thumb-maincolor scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-x-hidden">
         <div class=" ">
@@ -28,13 +77,17 @@
                 @yield('home')
                 @yield('news')
                 @yield('artist')
+                @yield('album')
                 @yield('about')
 
                 @yield('login')
                 @yield('signup')
                 @yield('register')
 
+                @yield('toartist')
+
             </main>
         </div>
+        {{-- <x-footermine/> --}}
     </body>
 </html>

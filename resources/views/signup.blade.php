@@ -2,9 +2,12 @@
 
 @section('signup')
 <div class="flex  w-[55%] m-auto mt-10 mb-10  border border-gray-100 shadow-lg">
-    <div class="w-1/2  bg-gray-300 ">
-            <img class="relative w-full h-full object-cover" src="imgs/randimgs/musicimg.jpg" alt="Music Image">
+    <div class="w-1/2  bg-gray-300 ">cfc
+        
+        
+          <img class="relative w-full h-full object-cover" src="imgs/randimgs/musicimg.jpg" alt="Music Image">
     </div>
+
     <div class=" w-1/2 h-full py-7">
             <h1 id="zname" class="text-center text-4xl text-gray-600">Zema</h1>
 

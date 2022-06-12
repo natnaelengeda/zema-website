@@ -11,6 +11,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                Fascinate: ['Fascinate', 'cursive'],
+                Staatliches: ['Staatliches', 'cursive']
             },
             colors: {
                 'maincolor' : '#6667AB',
@@ -19,6 +21,7 @@ module.exports = {
                 'gradientcol2' : '#58247A',
                 'gradientcol3' :'#800E0E',
               },
+              
         },
     },
 

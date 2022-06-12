@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Staatliches&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,9 +21,13 @@
     .homeltabcl{
         @apply flex  w-full cursor-pointer h-12 p-2 px-4 hover:bg-gray-100  my-2;
     }
+    .sidebara{
+        @apply ;
+    }
 }
 @layer base {
     #zname {
       font-family: Old English Text MT;
     }
-  }
+}
+  

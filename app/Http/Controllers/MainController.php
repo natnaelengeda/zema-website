@@ -3,18 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Http\CookieController;
 
 class MainController extends Controller
 {
-    public function index(){    
-
+    public function index(Request $request){    
+       
+        // $cookie = Cookie::forget('cookieName');
+        // request()->deleteCookie('artistpage');
         $cats = ["New Releases","Artists","Genres"];
-        return view('index', ['cats' => $cats]);            
+        
+
+        return response(view('index', ['cats' => $cats]));
     }
     public function home(){
         $countRecents = 8;
         $rophnanAlbum = ["Get to Work","Lingersih","Gamo Gofa","Cherekan","Piyasa Lay"];
         $count = 1;
+       
 
         return view('home', ['recs' => $countRecents, 'ralbum' => $rophnanAlbum, 'count' => $count]);
     }
@@ -26,6 +32,10 @@ class MainController extends Controller
         $Alphabet = ['A','B','C','D','E','F','G','H'];
 
         return view('artist', ['alpha' => $Alphabet]);
+    }
+    public function album(){
+
+        return view('album');
     }
     public function about(){
 
