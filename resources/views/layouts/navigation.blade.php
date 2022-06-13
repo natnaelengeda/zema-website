@@ -36,7 +36,7 @@
 
                      <x-nav-link :href="route('album')" :active="request()->routeIs('album')">
                         <div class="flex items-center justify-evenly gap-2">
-                             {{ __('Album') }}
+                            <x-album-icon/> {{ __('Album') }}
                            </div>
                     </x-nav-link>
  

@@ -23,7 +23,7 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
-    /**
+    /** 
      * Handle an incoming registration request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
             'phonenumber' => $request->phonenumber,
             'password' => Hash::make($request->password),
         ]);
-
+    
         event(new Registered($user));
 
         Auth::login($user);

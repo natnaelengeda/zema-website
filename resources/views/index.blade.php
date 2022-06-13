@@ -3,9 +3,9 @@
 @section('index')
 
 <div class="relative"> 
-    <div class="h-auto flex justify-between pb-10"><!-- First Section -->
-        <div class=" h-full px-20 py-5">
-            <div class=" border-gray-100 border-r-7 w-96 h-56 flex items-center rounded-2xl shadow-lg">
+    <div class=" h-auto flex flex-col md:flex-row justify-between pb-10"><!-- First Section -->
+        <div class=" boor w-full m-auto md:m-1  h-full px-10 md:px-20 py-10">
+            <div class=" border-gray-100 border-r-7 w-full md:w-96 h-56 flex items-center boor rounded-2xl shadow-lg">
                 <div class="ml-8 -rotate-45 ">
                     <img class="w-32" src="imgs/icon/icon.png" alt="Zema Icon">
                 </div>
@@ -15,14 +15,19 @@
                 </div>
             </div>
         </div>
-        <div class="w-full px-10 py-2">
-            <div class="p-5">
-                <form action="">
-                <svg class="w-6 h-6 absolute m-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
-                <input class="border border-gray-600 w-[35rem] rounded-lg h-10 outline-none px-10 " type="search" name="searchsong" placeholder="Search for songs..">
-                <input class="border  h-10 w-24 rounded-lg ml-5 bg-maincolor shadow-sm hover:shadow-lg text-white cursor-pointer" type="submit" value="Search">
-                </form>
-    </div> 
+        <div class="w-full px-10 py-5">
+            
+                  <form>
+                    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only :text-gray-300">Search</label>
+                      <div class="relative">
+                      <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-500 :text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <input type="search" id="default-search" class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-blue-500 :focus:border-blue-500" placeholder="Search Mockups, Logos..." required="">
+                    <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-maincolor hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 :bg-blue-600 :hover:bg-blue-700 :focus:ring-blue-800">Search</button>
+                    </div>
+                  </form>
+
      <hr>          
      <div class=" w-full flex ml-10 items-center"><!-- Second Section -->
                 <div class="hover:border border-black rounded-full cursor-pointer">

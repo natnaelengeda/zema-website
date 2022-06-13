@@ -21,7 +21,7 @@
       <h1 class="text-center text-white text-6xl font-popins">Start Uploading and get Connected.</h1>
       <h1 class="text-center text-white text-xl mt-10">Learn more about Zema artist programs, or how to get involved with our Artist Community to help us build what's next.      </h1>
       <div class="flex justify-center mt-10">
-        <button class="border border-gray-200 w-40 h-16 m-auto rounded-xl bg-white text-xl  hover:shadow-xl ">Sign Up</button>
+        <button id="artistsignup" class="border border-gray-200 w-40 h-16 m-auto rounded-xl bg-white text-xl  hover:shadow-xl ">Sign Up</button>
       </div>
   </div>
 

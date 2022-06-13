@@ -15,16 +15,25 @@ use App\Http\Controllers\SessionController;
 |
 */
 
+// Main Page
 Route::get('/', [MainController::class, 'index' ])->name('index');
 Route::get('/home', [MainController::class, 'home'])->name('home');
 Route::get('/news', [MainController::class, 'news'])->name('news');
 Route::get('/artist',[MainController::class, 'artist'])->name('artist');
-Route::get('/album', [MainController::class],'album')->name('album');
+Route::get('/album', [MainController::class,'album'])->name('album');
 Route::get('/about', [MainController::class, 'about'])->name('about');
 // Route::get('/login', [MainController::class, 'login'])->name('login');
 // Route::get('/signup', [MainController::class, 'signup'])->name('signup');
 
+// Artist Page
 Route::get('/toartist',[ArtistController::class, 'index'])->name('tartist');
+Route::get('/artistsign',[ArtistController::class, 'sign'])->name('asign');
+Route::get('/artistlog',[ArtistController::class, 'log'])->name('alogin');
+
+Route::post('/asignup',[ArtistController::class, 'asignup']);
+Route::post('/alogin', [ArtistController::class, 'alogin']);
+
+
 
 // Sessions 
 Route::get('session/get',[SessionController::class, 'accessSessionData']);

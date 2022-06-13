@@ -25,11 +25,17 @@ var hiddenc = $('#hiddenclass');
     
 // });
 var artistpage = $('#toartist');
+var artistsign = $('#artistsignup');
 
 artistpage.on("click",function(e){
     console.log('clicked');
     window.location = "/toartist";
 });
+artistsign.on("click", function(e){
+    console.log()
+    window.location = "/artistsign";
+})
+
 
 });
 

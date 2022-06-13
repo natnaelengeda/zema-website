@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Http\CookieController;
 
+
 class MainController extends Controller
 {
     public function index(Request $request){    
@@ -34,8 +35,9 @@ class MainController extends Controller
         return view('artist', ['alpha' => $Alphabet]);
     }
     public function album(){
+        $Alphabet = ['A','B','C','D','E','F','G','H'];
 
-        return view('album');
+        return view('album', ['alpha' => $Alphabet]);
     }
     public function about(){
 
