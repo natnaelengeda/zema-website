@@ -9,7 +9,9 @@ class SessionController extends Controller
  
     public function accessSessionData(Request $request) {
         if($request->session()->has('page'))
-           echo $request->session()->get('page');
+           echo $request->session()->get('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+
+         //   print_r($request->session()->all());
         else
            echo 'No data in the session';
          
@@ -23,8 +25,11 @@ class SessionController extends Controller
      }
      
      public function deleteSessionData(Request $request) {
-        $request->session()->forget('page');
+        $request->session()->forget('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d');
         echo "Data has been removed from session.";
-        return redirect('/');
+        return redirect('/toartist');
+     }
+     public function sessionall(Request $request){
+      print_r($request->session()->all());
      }
 }

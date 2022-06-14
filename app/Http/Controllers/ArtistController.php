@@ -35,28 +35,19 @@ class ArtistController extends Controller
         return view('/artistpage/login');
      }
      public function asignup(Request $request){
-        $artist = new artist();
-
+    
         $request->validate([
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],       
             'uname' => ['required', 'string', 'max:255'],  
-            'email' => ['string', 'email', 'max:255', 'unique:users'],
+            'email' => ['string', 'email', 'max:255'],
             'phonenumber' => ['required', 'string', 'max:255'],
             'gender' => ['required'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        // $artist->fname = request('fname');
-        // $artist->lname = request('lname');
-        // $artist->uname = request('uname');
-        // $artist->email = request('email');
-        // $artist->phonenumber = request('phonenumber');
-        // $artist->gender = request('gender');
-        // $artist->password = request('password');
-        
-        // $artist->save();
-        artist::create([
+
+             artist::create([
             'fname' => $request->fname,
             'lname' => $request->lname,
             'uname' => $request->uname,
@@ -75,24 +66,27 @@ class ArtistController extends Controller
 
 
      }
-     public function alogin(){
-      
+     public function alogin(Request $request){
+        
+        // $credentials = $request->validate([
+        //     'email' => ['required', 'email'],
+        //     'password' => ['required'],
+        // ]);
 
-      $success = auth()->attempt([
-         'email' => request('email'),
-         'password' => request('password')
-     ]);
-
-     if($success) {
-         return redirect()->to(RouteServiceProvider::HOME);
+        if (Auth::guard('Artist')->attempt(['email' => $request->email, 'password' => 
+        $request->password], $request->remember)) {
+        return redirect()->intended('/toartist');
      }
+ 
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
 
-     return back()->withErrors([
-         'email' => 'The provided credentials do not match our records.',
-     ]);
-      
-       
+     }
+     public function profile()
+     {
 
-      
+
+        return view('/artistpage/profile');
      }
 }

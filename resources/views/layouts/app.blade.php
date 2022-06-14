@@ -85,6 +85,7 @@
                 @yield('register')
 
                 @yield('toartist')
+                @yield('artistprofile');
 
             </main>
         </div>

@@ -4995,6 +4995,7 @@ $(function () {
 
   var artistpage = $('#toartist');
   var artistsign = $('#artistsignup');
+  var artlog = $('#artlog');
   artistpage.on("click", function (e) {
     console.log('clicked');
     window.location = "/toartist";
@@ -5002,6 +5003,9 @@ $(function () {
   artistsign.on("click", function (e) {
     console.log();
     window.location = "/artistsign";
+  });
+  artlog.on("click", function (e) {
+    window.location = "/artistlog";
   });
 });
 

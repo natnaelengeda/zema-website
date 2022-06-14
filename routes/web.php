@@ -33,13 +33,15 @@ Route::get('/artistlog',[ArtistController::class, 'log'])->name('alogin');
 Route::post('/asignup',[ArtistController::class, 'asignup']);
 Route::post('/alogin', [ArtistController::class, 'alogin']);
 
+Route::get('/artprofile',[ArtistController::class, 'profile'])->name('artprofile');
+
 
 
 // Sessions 
 Route::get('session/get',[SessionController::class, 'accessSessionData']);
 Route::get('session/set',[SessionController::class, 'storeSessionData']);
-Route::get('session/remove',[SessionController::class, 'deleteSessionData']);
-
+Route::get('session/remove',[SessionController::class, 'deleteSessionData'])->name('artistendsession');
+Route::get('session/all',[SessionController::class, 'sessionall']);
 
 Route::get('/test', function() {
     return view('other.test');

@@ -12,6 +12,7 @@
 
             <h1 class="text-center mt-7 text-xl font-bold text-gray-400">Welcome to Zema</h1>
             <div class="w-[90%] m-auto mt-10 h-auto">
+                <x-auth-validation-errors class="mb-4" :errors="$errors" /> 
                         <form method="POST" action="/alogin">
                             @csrf
                         {{-- Email  --}}
