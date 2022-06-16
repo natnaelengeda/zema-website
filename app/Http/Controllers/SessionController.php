@@ -32,4 +32,9 @@ class SessionController extends Controller
      public function sessionall(Request $request){
       print_r($request->session()->all());
      }
+     public function sessionart(Request $request){
+      $request->session()->forget('page');
+      return redirect('/');
+
+     }
 }

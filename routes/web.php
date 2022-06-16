@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\SessionController;
+use GuzzleHttp\Cookie\SessionCookieJar;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +39,11 @@ Route::get('/artprofile',[ArtistController::class, 'profile'])->name('artprofile
 Route::get('/artupload', [ArtistController::class, 'uploadmusicpage'])->name('uploadmus');
 
 Route::post('/uploadmusic',[ArtistController::class, 'uploadmusicfun']);
+Route::delete('/deletemusic/{id}',[ArtistController::class, 'deletemusicfun']);
+
+Route::get('/viewmusic',[ArtistController::class, 'viewmusicfun']);
+Route::get('/viewalbum',[ArtistController::class, 'viewalbumfun']);
+
 
 
 // Sessions 
@@ -44,6 +51,7 @@ Route::get('session/get',[SessionController::class, 'accessSessionData']);
 Route::get('session/set',[SessionController::class, 'storeSessionData']);
 Route::get('session/remove',[SessionController::class, 'deleteSessionData'])->name('artistendsession');
 Route::get('session/all',[SessionController::class, 'sessionall']);
+Route::get('/sessionart', [SessionController::class, 'sessionart']);
 
 Route::get('/test', function() {
     return view('other.test');

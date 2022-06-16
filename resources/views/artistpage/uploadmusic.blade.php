@@ -22,13 +22,13 @@
                                         </div>
 
                                         <div class="mb-6">                       
-                                        <label class="block mb-2 text-sm font-medium text-gray-900 :text-gray-300" for="user_avatar">Music Pic:</label>
+                                        <label class="block mb-2 text-sm font-medium text-gray-900 :text-gray-300" for="musicpic">Music Pic:</label>
                                         <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none"  id="musicpic" name="musicpic" type="file">
                                         <div class="mt-1 text-sm text-gray-500 :text-gray-300" id="user_avatar_help">An Album art for your music </div>
                                         </div>
 
                                         <div class="mb-6">                       
-                                                <label class="block mb-2 text-sm font-medium text-gray-900 :text-gray-300" for="user_avatar">Music File:</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 :text-gray-300" for="musicfile">Music File:</label>
                                                 <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none"  id="musicfile" name="musicfile" type="file">
                                                 <div class="mt-1 text-sm text-gray-500 :text-gray-300" id="user_avatar_help">Upload the music file here</div>
                                                 </div>

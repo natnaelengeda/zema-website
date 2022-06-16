@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class music extends Model
+class Music extends Model
 {
     use HasFactory;
 
@@ -18,16 +18,10 @@ class music extends Model
         'music_file',
         'music_duration',
         'music_size',
+        'album',
         'music_track_num',
         'artist_id',
-        'hashtag',
-
-    ];
-
-
-
-
-
+        'hashtag'];
 
 
 

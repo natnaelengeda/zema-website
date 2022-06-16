@@ -4,7 +4,7 @@
 
 <div class="relative"> 
     <div class=" h-auto flex flex-col md:flex-row justify-between pb-10"><!-- First Section -->
-        <div class=" boor w-full m-auto md:m-1  h-full px-10 md:px-20 py-10">
+        <div class="  w-full m-auto md:m-1  h-full px-10 md:px-20 py-10">
             <div class=" border-gray-100 border-r-7 w-full md:w-96 h-56 flex items-center boor rounded-2xl shadow-lg">
                 <div class="ml-8 -rotate-45 ">
                     <img class="w-32" src="imgs/icon/icon.png" alt="Zema Icon">

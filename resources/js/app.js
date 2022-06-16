@@ -27,6 +27,8 @@ var hiddenc = $('#hiddenclass');
 var artistpage = $('#toartist');
 var artistsign = $('#artistsignup');
 var artlog = $('#artlog');
+var footer = $('#footer');
+
 
 artistpage.on("click",function(e){
     console.log('clicked');
@@ -39,7 +41,9 @@ artistsign.on("click", function(e){
 artlog.on("click", function(e){
     window.location = "/artistlog";
 })
-
-
+    $path = $(location).attr('pathname');
+    if($path == "/artupload" )
+    {
+        footer.addClass('hidden');
+    }
 });
-

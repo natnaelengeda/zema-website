@@ -89,6 +89,8 @@
                 @yield('toartist')
                 @yield('artistprofile')
                 @yield('uploadmusic')
+                @yield('viewmusic')
+                @yield('viewalbum')
 
             </main>
         </div>
