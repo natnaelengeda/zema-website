@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\artist;
-use App\Models\music;
+use App\Models\Artist;
+use App\Models\Music;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;

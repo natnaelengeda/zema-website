@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 @endfor
-        </div>
+            </div>
         <hr class="border border-gray-400">
         <div class="h-96">
                 <div>

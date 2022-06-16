@@ -64,6 +64,13 @@
         height: 100%;
         object-fit: cover;
       }
+      .hide-scroll-bar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+      }
+      .hide-scroll-bar::-webkit-scrollbar {
+          display: none;
+        }
       
     </style>
         

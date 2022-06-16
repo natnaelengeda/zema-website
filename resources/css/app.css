@@ -24,6 +24,9 @@
     .sidebara{
         @apply ;
     }
+    /* .scrollthing{
+        @apply scrollbar-thin scrollbar-thumb-maincolor scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full  ; 
+    } */
 }
 @layer base {
     #zname {

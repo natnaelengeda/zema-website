@@ -28,28 +28,28 @@
                     </div>
                   </form>
 
-     <hr>          
-     <div class=" w-full flex ml-10 items-center"><!-- Second Section -->
-                <div class="hover:border border-black rounded-full cursor-pointer">
-                <svg class="w-6 h-6 text-maincolor" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                </div>
-                <div class="w-40">
-                    <img class="" src="imgs/randimgs/rand1.png" alt="Rand Image One">
-                </div>
-                <div class="w-40">
-                    <img class="" src="imgs/randimgs/rand2.png" alt="Rand Image One">
-                </div>
-                <div class="w-40">
-                    <img class="" src="imgs/randimgs/rand3.png" alt="Rand Image One">
-                </div>
-                <div class="w-40">
-                    <img class="" src="imgs/randimgs/rand4.png" alt="Rand Image One">
-                </div>
-                <div class="hover:border border-black rounded-full cursor-pointer">
-                <svg class="w-6 h-6 text-maincolor" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                </div>
-     </div>
-    <hr>
+          <hr>          
+          <div class=" w-full flex ml-10 items-center"><!-- Second Section -->
+                      <div class="hover:border border-black rounded-full cursor-pointer">
+                      <svg class="w-6 h-6 text-maincolor" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                      </div>
+                      <div class="w-40">
+                          <img class="" src="imgs/randimgs/rand1.png" alt="Rand Image One">
+                      </div>
+                      <div class="w-40">
+                          <img class="" src="imgs/randimgs/rand2.png" alt="Rand Image One">
+                      </div>
+                      <div class="w-40">
+                          <img class="" src="imgs/randimgs/rand3.png" alt="Rand Image One">
+                      </div>
+                      <div class="w-40">
+                          <img class="" src="imgs/randimgs/rand4.png" alt="Rand Image One">
+                      </div>
+                      <div class="hover:border border-black rounded-full cursor-pointer">
+                      <svg class="w-6 h-6 text-maincolor" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                      </div>
+          </div>
+          <hr>
         </div>
     </div> <!-- First Section End-->
     
@@ -62,40 +62,69 @@
         <h1 class="text-center font-bold text-xl m-5 text-maincolor">Weekly Top #15</h1>
     <ul class="space-y-2">
         
-    @for($i=0 ; $i < 10 ; $i++)
+    @foreach($musics as $music)
 
     <li>
         <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700">
             <svg class="w-10 text-maincolor ml-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
             <div class="flex flex-col  items-center ml-5">
-                <span class="ml-3 font-bold text-lg">Music Name</span>
-                <span>Artist Name</span>
+                <span class="ml-3 font-bold text-lg">{{ $music->music_name }}</span>
+                <span>{{$music->id}}</span>
             </div>
         </a>
     </li>
-    @endfor
+    @endforeach
     </ul>
     </div>
     </aside>
     
 
         <div class="w-full ml-10">
-            @foreach($cats as $cat)
-            <div>
-                <div class="w-full m-5 ">
-                    <h1 class="text-maincolor text-3xl font-bold m-1">{{$cat}}</h1>
-                    <hr class="w-1/3 text-maincolor">
+            @foreach($Header as $Header)
+              <div>
+                  <div class="w-full m-5 overflow-auto scrollbar-thin  scroll-smooth scrollbar-thumb-maincolor">
+                      <h1 class="text-maincolor text-3xl font-bold m-1">{{$Header}}</h1>
+                      <hr class="w-1/3 text-maincolor">
+                  </div>
+              {{-- <div class="flex overflow-x-auto space-x-8 bg-red-200  boor h-60 w-[55rem]">
+                  @for($i=1; $i < 6; $i++)
+                    <div class="w-56 border h-full border-black cursor-pointer ">
+                        <img src="imgs/randimgs/rand{{$i}}.png" alt="">
+                    </div>
+                  @endfor                
+              </div> --}}
+                {{-- <div class="w-full  mt-1 h-auto flex gap-5 overflow-auto scrollbar-thin  scroll-smooth scrollbar-thumb-maincolor">
+                  @for($i=0 ; $i<8; $i++) 
+                  <div class=" w-auto">
+                       <div class="w-44">
+                           <img src="imgs/albumart/reflection.png" alt="Reflection Album Art">
+                       </div>
+                       <div class="">
+                           <p class="text-center">Reflection</p>
+                       </div>
+                   </div>
+                   @endfor
+               </div> --}}
+               <!-- component -->
+                <div class="flex flex-col bg-white m-auto p-auto w-[55rem]">
+                    <div class="flex scrollbar-thin scrollbar-thumb-maincolor scrollbar-track-gray-300 overflow-x-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full py-3" >
+                          <div class="flex flex-nowrap lg:ml-10 md:ml-20 ml-10 ">
+                              @for($i=1; $i < 9; $i++)
+                              <div class="inline-block px-3 ">
+                                    <div class="w-auto h-full max-w-xs  overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                                      <div class="w-44">
+                                        <img src="imgs/albumart/reflection.png" alt="Reflection Album Art">
+                                        <p class="text-center">Music Name</p>
+                                    </div>
+                                    </div>
+                              </div>
+                              @endfor
+                          </div>
+                     </div>
                 </div>
-            <div class="flex ">
-                @for($i=1; $i < 5; $i++)
-                <div class="w-56 cursor-pointer hover:w-60 ease-linear duration-100 hover:relative">
-                    <img src="imgs/randimgs/rand{{$i}}.png" alt="">
-                </div>
-                @endfor                
-            </div>
-            </div>
-            @endforeach
-        </div>
+           </div>
+      @endforeach
+    </div>
     </div> <!-- Second Section End -->
     <section class="text-gray-600 body-font">
         <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">

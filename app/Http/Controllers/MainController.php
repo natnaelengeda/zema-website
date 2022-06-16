@@ -4,18 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Http\CookieController;
-
+use App\Models\Artist;
+use App\Models\Music;
+use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
     public function index(Request $request){    
-       
-        // $cookie = Cookie::forget('cookieName');
-        // request()->deleteCookie('artistpage');
-        $cats = ["New Releases","Artists","Genres"];
+        $music = new Music();
+        $artist = new Artist();
+
+        $allmusic = DB::table('music')->get();
+
+        // $artist = DB::table('music')->where('artist_id', $id)->get();
+
+        $Headers = ["New Releases","Artists","Genres"];
         
 
-        return response(view('index', ['cats' => $cats]));
+        return response(view('index', ['Header' => $Headers, 'musics' => $allmusic]));
     }
     public function home(){
         $countRecents = 8;
