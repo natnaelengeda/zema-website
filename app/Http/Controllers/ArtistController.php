@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\artist;
-// use Illuminate\Support\Facades\Auth;
-// use App\Providers\RouteServiceProvider;
+use App\Models\music;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
-// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
@@ -46,8 +44,7 @@ class ArtistController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-
-             artist::create([
+          artist::create([
             'fname' => $request->fname,
             'lname' => $request->lname,
             'uname' => $request->uname,
@@ -56,26 +53,14 @@ class ArtistController extends Controller
             'gender' => $request->gender,
             'password' => Hash::make($request->password),
         ]);
-
-        
-        
+    
         return redirect('/toartist');
-        
-
-
-
-
-     }
+   }
      public function alogin(Request $request){
-        
-        // $credentials = $request->validate([
-        //     'email' => ['required', 'email'],
-        //     'password' => ['required'],
-        // ]);
-
+     
         if (Auth::guard('Artist')->attempt(['email' => $request->email, 'password' => 
         $request->password], $request->remember)) {
-        return redirect()->intended('/toartist');
+        return redirect()->intended('/artprofile');
      }
  
         return back()->withErrors([
@@ -83,10 +68,61 @@ class ArtistController extends Controller
         ])->onlyInput('email');
 
      }
-     public function profile()
-     {
+     public function profile(Request $request)
+     {  
+      $id = $request->session()->get('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+      $dbs = artist::findOrFail($id); 
+      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload];
 
-
-        return view('/artistpage/profile');
+        return response(view('/artistpage/profile',['info'=> $info]));
      }
+     public function uploadmusicpage(Request $request){
+      $id = $request->session()->get('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+      $dbs = artist::findOrFail($id); 
+      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload];
+
+     return response(view('/artistpage/uploadmusic',['info'=> $info]));
+   }
+      public function uploadmusicfun(Request $request){
+         $music = new music();
+
+         $music_name = request('musicname');
+         $music_pic =  time().'-'.$request->musicpic.'.'.$request->musicpic->extension();
+         $music_file = time().'-'.$request->musicfile.'.'.$request->musicfile->extension();
+         $hashtag = request('hashtag');
+         $genre = request('genre');
+         $album = request('album');
+         $contartist = request('contartist');
+         $tracknum = request('tracknumber');
+
+         $request->musicpic->move(public_path('imgs/uploads/art-music-pic'),$music_pic);
+
+         music::create([
+            'music_name' => $music_name,
+            'music_file' => $music_file,
+            'music_format' =>$request->musicpic->extension(),
+            'music_genre' => $genre,
+            'music_duration' => 'unkown',
+            'music_image' => $music_pic,
+            'music_size' => 'unkown',
+            'music_track_num' => $tracknum,
+            'artist_id' => $request->session()->get('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d'),
+            'hashtag' => $hashtag,
+            'music_like' => 0,
+            'listen_count' =>0,
+
+         ]);
+
+         return redirect('/artprofile')->with('upstate', 'Picture Uploaded Successfully');
+
+
+
+
+
+
+
+
+
+
+      }
 }

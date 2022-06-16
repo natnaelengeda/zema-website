@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+// import 'flowbite';
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

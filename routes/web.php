@@ -34,7 +34,9 @@ Route::post('/asignup',[ArtistController::class, 'asignup']);
 Route::post('/alogin', [ArtistController::class, 'alogin']);
 
 Route::get('/artprofile',[ArtistController::class, 'profile'])->name('artprofile');
+Route::get('/artupload', [ArtistController::class, 'uploadmusicpage'])->name('uploadmus');
 
+Route::post('/uploadmusic',[ArtistController::class, 'uploadmusicfun']);
 
 
 // Sessions 
