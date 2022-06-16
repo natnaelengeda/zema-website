@@ -115,14 +115,5 @@ class ArtistController extends Controller
 
          return redirect('/artprofile')->with('upstate', 'Picture Uploaded Successfully');
 
-
-
-
-
-
-
-
-
-
-      }
+   }
 }
