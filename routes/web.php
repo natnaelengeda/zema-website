@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\MusicController;
 use GuzzleHttp\Cookie\SessionCookieJar;
 
 /*
@@ -44,6 +45,7 @@ Route::delete('/deletemusic/{id}',[ArtistController::class, 'deletemusicfun']);
 Route::get('/viewmusic',[ArtistController::class, 'viewmusicfun']);
 Route::get('/viewalbum',[ArtistController::class, 'viewalbumfun']);
 
+Route::get('/showtracks/{id}',[MusicController::class, 'showtracks']);
 
 
 // Sessions 

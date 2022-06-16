@@ -80,50 +80,92 @@
     
 
         <div class="w-full ml-10">
-            @foreach($Header as $Header)
+
+              <div> 
               <div>
-                  <div class="w-full m-5 overflow-auto scrollbar-thin  scroll-smooth scrollbar-thumb-maincolor">
-                      <h1 class="text-maincolor text-3xl font-bold m-1">{{$Header}}</h1>
-                      <hr class="w-1/3 text-maincolor">
-                  </div>
-              {{-- <div class="flex overflow-x-auto space-x-8 bg-red-200  boor h-60 w-[55rem]">
-                  @for($i=1; $i < 6; $i++)
-                    <div class="w-56 border h-full border-black cursor-pointer ">
-                        <img src="imgs/randimgs/rand{{$i}}.png" alt="">
-                    </div>
-                  @endfor                
-              </div> --}}
-                {{-- <div class="w-full  mt-1 h-auto flex gap-5 overflow-auto scrollbar-thin  scroll-smooth scrollbar-thumb-maincolor">
-                  @for($i=0 ; $i<8; $i++) 
-                  <div class=" w-auto">
-                       <div class="w-44">
-                           <img src="imgs/albumart/reflection.png" alt="Reflection Album Art">
-                       </div>
-                       <div class="">
-                           <p class="text-center">Reflection</p>
-                       </div>
-                   </div>
-                   @endfor
-               </div> --}}
-               <!-- component -->
+                <div class="w-full m-5 overflow-auto scrollbar-thin  scroll-smooth scrollbar-thumb-maincolor">
+                    <h1 class="text-maincolor text-3xl font-bold m-1">New Releases</h1>
+                    <hr class="w-1/3 text-maincolor">
+                </div>
+      
                 <div class="flex flex-col bg-white m-auto p-auto w-[55rem]">
                     <div class="flex scrollbar-thin scrollbar-thumb-maincolor scrollbar-track-gray-300 overflow-x-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full py-3" >
-                          <div class="flex flex-nowrap lg:ml-10 md:ml-20 ml-10 ">
-                              @for($i=1; $i < 9; $i++)
-                              <div class="inline-block px-3 ">
+                          <div class="flex flex-nowrap lg:ml-5 md:ml-20 ml-10 ">
+                              @foreach($newreal as $content)
+                              <div class="inline-block px-3 cursor-pointer">
                                     <div class="w-auto h-full max-w-xs  overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
                                       <div class="w-44">
-                                        <img src="imgs/albumart/reflection.png" alt="Reflection Album Art">
-                                        <p class="text-center">Music Name</p>
+                                        <img src="imgs/uploads/art-music-pic/{{$content->music_image}}" alt="Reflection Album Art">
+                                        <p class="text-center">{{ $content->music_name }}</p>
                                     </div>
                                     </div>
                               </div>
-                              @endfor
+                              @endforeach
                           </div>
                      </div>
                 </div>
-           </div>
-      @endforeach
+             </div>
+             </div>
+
+             <div> 
+              <div>
+                <div class="w-full m-5 overflow-auto scrollbar-thin  scroll-smooth scrollbar-thumb-maincolor">
+                    <h1 class="text-maincolor text-3xl font-bold m-1">Artists</h1>
+                    <hr class="w-1/3 text-maincolor">
+                </div>
+      
+                <div class="flex flex-col bg-white m-auto p-auto w-[55rem]">
+                    <div class="flex scrollbar-thin scrollbar-thumb-maincolor scrollbar-track-gray-300 overflow-x-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full py-3" >
+                          <div class="flex flex-nowrap lg:ml-5 md:ml-20 ml-10">
+                              @foreach($artists as $artist)
+                              <a href="/showtracks/{{ $artist->id }}" class="inline-block px-3">
+                                    <div class="w-auto boor cursor-pointer h-full max-w-xs  overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                                      <div class="w-44 ">
+                                        <img src="imgs/uploads/art-profile-pic/{{$artist->profilepic}}" alt="Reflection Album Art">
+                                      </div>
+                                      <div>
+                                        <p class="text-center">{{ $artist->fname }} {{ $artist->lname}}</p>
+                                      </div>
+                                    </div>
+                                </a>
+                              @endforeach
+                          </div>
+                     </div>
+                </div>
+             </div>
+             </div>
+
+             <div> 
+              <div>
+                <div class="w-full m-5 overflow-auto scrollbar-thin  scroll-smooth scrollbar-thumb-maincolor">
+                    <h1 class="text-maincolor text-3xl font-bold m-1">Genres</h1>
+                    <hr class="w-1/3 text-maincolor">
+                </div>
+      
+                <div class="flex flex-col bg-white m-auto p-auto w-[55rem]">
+                    <div class="flex scrollbar-thin scrollbar-thumb-maincolor scrollbar-track-gray-300 overflow-x-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full py-3" >
+                          <div class="flex flex-nowrap lg:ml-5 md:ml-20 ml-10">
+                              @foreach($genre as $genre)
+                              <div class="inline-block px-3">
+                                    <div class="w-auto boor cursor-pointer h-full max-w-xs  overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                                      <div class="w-44 h-44 ">
+                                        <img class="w-96 boor" src="https://media.istockphoto.com/photos/music-background-with-different-genres-and-types-picture-id470767474?k=20&m=470767474&s=612x612&w=0&h=8GnyDhsmkedddlOwhJTrWG_Wi0zozsWpmO00_7XrQfY=" alt="Reflection Album Art">
+                                      </div>
+                                      <div>
+                                        <p class="text-center">{{$genre}}</p>
+                                      </div>
+                                    </div>
+                              </div>
+                              @endforeach
+                          </div>
+                     </div>
+                </div>
+             </div>
+             </div>
+
+
+     
+
     </div>
     </div> <!-- Second Section End -->
     <section class="text-gray-600 body-font">

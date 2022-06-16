@@ -99,6 +99,8 @@
                 @yield('viewmusic')
                 @yield('viewalbum')
 
+
+                @yield('showtracks')
             </main>
         </div>
         {{-- <x-footermine/> --}}

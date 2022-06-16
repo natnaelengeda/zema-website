@@ -11,17 +11,15 @@ use Illuminate\Support\Facades\DB;
 class MainController extends Controller
 {
     public function index(Request $request){    
-        $music = new Music();
-        $artist = new Artist();
 
         $allmusic = DB::table('music')->get();
-
-        // $artist = DB::table('music')->where('artist_id', $id)->get();
-
+        $newrel = Music::orderBy('id', 'DESC')->get();
+        $artist = Artist::orderBy('id', 'DESC')->get();
+        $genres = ["Rock","Singing","Hip-Hop"];
         $Headers = ["New Releases","Artists","Genres"];
         
 
-        return response(view('index', ['Header' => $Headers, 'musics' => $allmusic]));
+        return response(view('index', ['Header' => $Headers, 'musics' => $allmusic, 'newreal' => $newrel, 'artists' =>$artist, 'genre' => $genres ]));
     }
     public function home(){
         $countRecents = 8;
