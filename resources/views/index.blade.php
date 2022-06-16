@@ -309,4 +309,5 @@
         </div>
     </div><!-- Fifth Section End--> --}}
 </div>
+<x-musicplayer/>
 @endsection

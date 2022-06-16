@@ -47,6 +47,7 @@ Route::get('/viewalbum',[ArtistController::class, 'viewalbumfun']);
 
 Route::get('/showtracks/{id}',[MusicController::class, 'showtracks']);
 
+// Route::get('/');
 
 // Sessions 
 Route::get('session/get',[SessionController::class, 'accessSessionData']);

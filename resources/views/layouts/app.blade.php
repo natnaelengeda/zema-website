@@ -99,6 +99,7 @@
                 @yield('viewmusic')
                 @yield('viewalbum')
 
+                @yield('mp')
 
                 @yield('showtracks')
             </main>
