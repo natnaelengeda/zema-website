@@ -37,24 +37,26 @@ class ArtistController extends Controller
     
         $request->validate([
             'fname' => ['required', 'string', 'max:255'],
-            'lname' => ['required', 'string', 'max:255'],       
+            'lname' => ['required', 'string', 'max:255'],
+            'profilepic' =>['mimes:jpeg,jpg,png,gif','max:10000'],       
             'uname' => ['required', 'string', 'max:255'],  
             'email' => ['string', 'email', 'max:255'],
             'phonenumber' => ['required', 'string', 'max:255'],
             'gender' => ['required'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
-          Artist::create([
+        $profilepic =  time().'-'.$request->fnmae.'_'.$request->lname.'.'.$request->profilepic->extension();
+        Artist::create([
             'fname' => $request->fname,
             'lname' => $request->lname,
+            'profilepic' => $profilepic,
             'uname' => $request->uname,
             'email' => $request->email,
             'phonenumber' => $request->phonenumber,
             'gender' => $request->gender,
             'password' => Hash::make($request->password),
         ]);
-    
+        $musicpic = $request->profilepic->move(public_path('imgs/uploads/art-profile-pic'),$profilepic);
         return redirect('/toartist');
    }
      public function alogin(Request $request){
@@ -73,7 +75,7 @@ class ArtistController extends Controller
      {  
       $id = $request->session()->get('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d');
       $dbs = artist::findOrFail($id); 
-      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload];
+      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload, 'profilepic' =>$dbs->profilepic];
 
         return response(view('/artistpage/profile',['info'=> $info]));
      }

@@ -3,7 +3,7 @@
         <div class="overflow-y-auto py-4 px-3 bg-gray-100 rounded :bg-gray-800">
             <center>
                 <div class="rounded-full w-32">
-                    <img class="rounded-full" src="imgs/albumart/reflection.png" alt="Profile Pics">
+                    <img class="rounded-full" src="/imgs/uploads/art-profile-pic/{{$info['profilepic']}}" alt="Profile Pics">
                 </div>
             </center>
             <div class="w-full flex justify-start gap-2 px-2 my-3">

@@ -22,6 +22,7 @@ class Artist extends Authenticatable
     protected $fillable = [
         'fname', 
         'lname',
+        'profilepic',
         'uname',
         'email',
         'gender',
