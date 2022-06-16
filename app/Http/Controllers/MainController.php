@@ -12,7 +12,7 @@ class MainController extends Controller
 {
     public function index(Request $request){    
 
-        $allmusic = DB::table('Music')->get();
+        $allmusic = DB::table('music')->get();
         $newrel = Music::orderBy('id', 'DESC')->get();
         $artist = Artist::orderBy('id', 'DESC')->get();
         $genres = ["Rock","Singing","Hip-Hop"];
