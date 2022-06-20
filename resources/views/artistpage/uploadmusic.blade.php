@@ -5,7 +5,9 @@
 
             <x-profilesidecomp :info="$info"/>
             
-            <div class="bg-white relative left-[18.9%] w-full h-screen p-10 ">
+            {{-- <div class="bg-white relative left-[18.9%] w-full h-screen p-10 "> --}}
+        <div class="w-full my-5 mb-10 h-auto bg-white px-5">
+
                 <div class="w-[50%] px-20 ">
                         
                          

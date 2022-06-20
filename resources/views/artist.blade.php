@@ -3,7 +3,7 @@
 @section('artist')
     <div>
     <x-sidebar/>
-            <div class="px-5 absolute left-[20%] w-full h-auto bg-gray-100 py-10">
+            <div class="px-5 absolute md:left-[20%] w-full h-auto bg-gray-100 py-10">
                <div> <!-- Top Section -->
                         <div class="m-3">
                             <p class="text-2xl font-bold">Top on the Chart</p>

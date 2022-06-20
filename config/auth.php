@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'Artist',
         ],
+        'Admin' =>[
+            'driver' => 'session',
+            'provider' => 'Admin',
+        ],
     ],
 
     /*
@@ -71,6 +75,10 @@ return [
         'Artist'=> [
             'driver' => 'eloquent',
             'model' => App\Models\Artist::class,
+        ],
+        'Admin'=> [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
         ],
         // 'users' => [
         //     'driver' => 'database',

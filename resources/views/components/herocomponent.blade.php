@@ -17,4 +17,4 @@
         <img class="object-cover object-center rounded" alt="hero" src="{{ $lpost['image'] }}">
       </div>
     </div>
-  </section>
+  </section> 

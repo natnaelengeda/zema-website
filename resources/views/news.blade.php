@@ -5,10 +5,11 @@
             <div>
                 <h1 class="text-center text-4xl">Latest</h1>
             </div>
-            <div class="py-10 grid grid-cols-3 justify-evenly gap-5">
-                @for($i=0 ; $i<5 ; $i++)
-                <x-blogcards/>
-                @endfor
+            <div class="py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-evenly gap-5">
+                @foreach ($news as $news)
+                <x-blogcards :post="$news"/>
+                
+                @endforeach
             </div>
     </div>
 @endsection

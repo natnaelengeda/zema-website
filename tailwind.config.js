@@ -10,6 +10,7 @@ module.exports = {
 
     theme: {
         extend: {
+            darkMode: 'class',
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 Fascinate: ['Fascinate', 'cursive'],

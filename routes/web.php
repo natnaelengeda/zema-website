@@ -6,6 +6,11 @@ use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\MusicController;
 use GuzzleHttp\Cookie\SessionCookieJar;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CookieController;
+use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\LiveSearch;
+// use App\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +23,8 @@ use GuzzleHttp\Cookie\SessionCookieJar;
 |
 */
 
+
+
 // Main Page
 Route::get('/', [MainController::class, 'index' ])->name('index');
 Route::get('/home', [MainController::class, 'home'])->name('home');
@@ -25,8 +32,25 @@ Route::get('/news', [MainController::class, 'news'])->name('news');
 Route::get('/artist',[MainController::class, 'artist'])->name('artist');
 Route::get('/album', [MainController::class,'album'])->name('album');
 Route::get('/about', [MainController::class, 'about'])->name('about');
+
+Route::get('/library', [MainController::class, 'lib']);
+Route::get('/topweek', [MainController::class, 'top']);
 // Route::get('/login', [MainController::class, 'login'])->name('login');
 // Route::get('/signup', [MainController::class, 'signup'])->name('signup');
+// Feedbacks
+Route::post('/sendfeedback', [MainController::class, 'feedback']);
+
+// User Profile
+Route::get('/userprofile', [MainController::class, 'uprofile'])->name('userprofile');
+
+// Update Profile
+Route::post('/updateprofile/{id}', [MainController::class, 'updateprofile']);
+
+// Live Search 
+// Route::get('/live_search', [LiveSearch::class, 'index'])
+Route::get('/live_search', [LiveSearch::class, 'action']);
+
+Route::get('/download', [DownloadController::class, 'index']);
 
 // Artist Page
 Route::get('/toartist',[ArtistController::class, 'index'])->name('tartist');
@@ -36,8 +60,8 @@ Route::get('/artistlog',[ArtistController::class, 'log'])->name('alogin');
 Route::post('/asignup',[ArtistController::class, 'asignup']);
 Route::post('/alogin', [ArtistController::class, 'alogin']);
 
-Route::get('/artprofile',[ArtistController::class, 'profile'])->name('artprofile');
-Route::get('/artupload', [ArtistController::class, 'uploadmusicpage'])->name('uploadmus');
+Route::get('/artprofile',[ArtistController::class, 'profile'])->name('artprofile')->middleware();
+Route::get('/artupload', [ArtistController::class, 'uploadmusicpage'])->name('uploadmus')->middleware();
 
 Route::post('/uploadmusic',[ArtistController::class, 'uploadmusicfun']);
 Route::delete('/deletemusic/{id}',[ArtistController::class, 'deletemusicfun']);
@@ -45,9 +69,48 @@ Route::delete('/deletemusic/{id}',[ArtistController::class, 'deletemusicfun']);
 Route::get('/viewmusic',[ArtistController::class, 'viewmusicfun']);
 Route::get('/viewalbum',[ArtistController::class, 'viewalbumfun']);
 
+Route::get('/updateart', [ArtistController::class, 'updateartist']);
+
 Route::get('/showtracks/{id}',[MusicController::class, 'showtracks']);
 
-// Route::get('/');
+// Update Artist Profile
+Route::post('updateartprofile/{id}', [ArtistController::class, 'updateprofile']);
+
+
+
+
+// Admin Login
+Route::get('/admin/login', [AdminController::class, 'login']);
+Route::post('/admin/login', [AdminController::class, 'alogin']);
+Route::get('/admin/signup', [AdminController::class, 'signup']);
+Route::post('/admin/signup', [AdminController::class, 'asignup']);
+Route::get('/postnews', [AdminController::class, 'pnews']);
+
+// Admiin
+Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin/dashboard', [AdminController::class, 'dash']);
+Route::get('/admin/user', [AdminController::class, 'user']);
+Route::get('/admin/artist',[AdminController::class, 'artist']);
+Route::get('/admin/music', [AdminController::class, 'music']);
+Route::get('admin/feedback', [AdminController::class, 'feedback']);
+
+// Admin Delete
+Route::delete('/admin/user/delete/{id}', [AdminController::class, 'deleteuser'])->name('deleteuser');
+Route::delete('/artist/delete/{id}', [AdminController::class, 'deleteartist']);
+Route::delete('/feedback/delete/{id}', [AdminController::class, 'deletefeed']);
+
+// Admin Signout
+Route::post('/admin/signout/', [AdminController::class, 'signout']);
+
+// Upload News
+Route::post('/uploadnews', [AdminController::class, 'uploadnews']);
+
+// Muisc
+Route::get('/mus', [MusicController::class, 'musics']);
+Route::get('/fetchmusic', [MusicController::class, 'fetchmusic']);
+Route::get('/fetchsingle/5', [MusicController::class, 'fetchsingle']);
+Route::post('/likemusic/{id}/{id2}', [MusicController::class, 'likemusic'])->name('likem');
+Route::post('/followartist/{id}', [MusicController::class, 'followartist'])->name('folowart');
 
 // Sessions 
 Route::get('session/get',[SessionController::class, 'accessSessionData']);

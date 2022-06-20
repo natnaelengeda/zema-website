@@ -1,13 +1,13 @@
 
 <div class="max-w-sm bg-white rounded-lg border border-gray-300 shadow-xl h-full :bg-gray-800 :border-gray-700">
     <a href="#">
-    <img class="rounded-t-lg w-full h-auto" src="imgs/albumart/rand1.jpg" alt="">
+    <img class="rounded-t-lg w-full h-auto" src="imgs/uploads/news-img/{{ $post['img']}}" alt="">
     </a>
     <div class="p-5">
     <a href="#">
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 :text-white">Rahel Tadese New Album</h5>
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 :text-white">{{ $post['header']}}</h5>
     </a>
-    <h1>Normalizing how we see everyting and anything</h1>
+    <h1>{{ $post['par']}}</h1>
     <p class="mb-3 font-normal text-gray-700 :text-gray-400"></p>
     <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 :bg-blue-600 :hover:bg-blue-700 :focus:ring-blue-800">
     Read more

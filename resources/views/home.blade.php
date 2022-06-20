@@ -3,6 +3,7 @@
 @section('home')
 <div class="">
     <div class="flex relative">
+        {{-- @if() --}}
         <x-sidebar/>
         
         <div class=" w-[60%] relative left-[20%]"> <!-- Middle Main Layout -->
@@ -44,18 +45,21 @@
                     <th><p>ALBUM</p></th>
                 </tr>
                 
-                @foreach($ralbum as $rlbum)
                 
+                @foreach($order as $musics)
+                @if($count == 5)
+                @break
+                @else
                 <tr class="cursor-pointer hover:bg-gray-200">
                     <td class=" " ><p class="ml-3">{{$count++}}</p></td>
                     <td class="">
                     <div class="flex items-center ml-5">
                         <img class="w-16" src="imgs/albumart/reflection.png" alt="" />
-                        <p class="relative text-center ml-12 -mr-12">{{$rlbum}}</p>
+                        <p class="relative text-center ml-12 -mr-12">{{ $musics->music_name}}</p>
                     </div>
                     </td>
                     <td>
-                    <p class="text-center">00,000</p>
+                    <p class="text-center">{{ $musics->listen_count}}</p>
                     </td>
                     <td class=" w-auto m-auto">
                     <p class="text-center">3:20</p>
@@ -64,6 +68,7 @@
                     <p class="text-center">Reflection</p>
                     </td>
                 </tr>
+                @endif
                 @endforeach
                 </table>
         </div> 
@@ -74,17 +79,26 @@
             </div>
             
             <div>
-               @for($i = 0; $i < $recs; $i++)
+               
+               @foreach($like as $likes)
+               @foreach($music as $musics)
+               @if($likes->music_id == $musics->id)
+                    @foreach($artists as $artist)
+                    @if($artist->id == $musics->artist_id)
                 <div class="flex cursor-pointer px-5 hover:bg-gray-100 mb-2">
                     <div class="w-16">
                         <img src="imgs/other/album.jpg" alt="Album art">
                     </div>
                     <div class="ml-5">
-                        <p class="font-bold">Song Name</p>
-                        <p class="font-light text-sm">Artist Name</p>
+                        <p class="font-bold">{{ $musics->music_name }}</p>
+                        <p class="font-light text-sm">{{ $artist->fname}} {{ $artist->lname}}</p>
                     </div>
                 </div>
-                @endfor
+                @endif
+                @endforeach
+                @endif
+                @endforeach
+                @endforeach
 
             </div>
         </div>

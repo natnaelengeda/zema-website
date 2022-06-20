@@ -5,7 +5,9 @@
     <div class="flex pb-10">
 
         <x-profilesidecomp :info="$info"/>
-        <div class="bg-white relative left-[18.9%] w-[80%] h-screen p-10 ">
+        {{-- <div class="bg-white relative left-[18.9%] w-[80%] h-screen p-10 "> --}}
+        <div class="w-3/4 my-5 mb-10 h-auto px-5">
+
             
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 :text-gray-400">

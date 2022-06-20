@@ -1,4 +1,4 @@
-<div class="bg-white fixed bottom-0  left-0 shadow-lg rounded-t-lg h-auto boor z-40 hidden" style="width: 100% !important;">
+<div class="bg-white fixed bottom-0  left-0 shadow-lg rounded-t-lg h-auto boor z-40 " style="width: 100% !important;">
 
     {{-- Top Section --}}
     <div class="flex h-24 gap-2 boredr-b border-gray-300">

@@ -27,6 +27,9 @@
     /* .scrollthing{
         @apply scrollbar-thin scrollbar-thumb-maincolor scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full  ; 
     } */
+    .sideprofile{
+        @apply flex justify-start items-end px-1 py-2 gap-2;
+    }
 }
 @layer base {
     #zname {

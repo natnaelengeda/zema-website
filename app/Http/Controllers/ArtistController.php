@@ -54,7 +54,9 @@ class ArtistController extends Controller
             'email' => $request->email,
             'phonenumber' => $request->phonenumber,
             'gender' => $request->gender,
+
             'password' => Hash::make($request->password),
+
         ]);
         $musicpic = $request->profilepic->move(public_path('imgs/uploads/art-profile-pic'),$profilepic);
         return redirect('/toartist');
@@ -63,6 +65,8 @@ class ArtistController extends Controller
      
         if (Auth::guard('Artist')->attempt(['email' => $request->email, 'password' => 
         $request->password])) {
+
+         
         return redirect()->intended('/artprofile');
      }
  
@@ -79,15 +83,17 @@ class ArtistController extends Controller
 
         return response(view('/artistpage/profile',['info'=> $info]));
      }
+
      public function uploadmusicpage(Request $request){
       $id = $request->session()->get('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d');
       $dbs = artist::findOrFail($id); 
-      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload];
+      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload,  'profilepic' =>$dbs->profilepic];
 
      return response(view('/artistpage/uploadmusic',['info'=> $info]));
    }
+
+   
       public function uploadmusicfun(Request $request){
-         $music = new Music();
 
          $music_name = request('musicname');
          $music_pic =  time().'-'.$request->music_name.'.'.$request->musicpic->extension();
@@ -110,6 +116,7 @@ class ArtistController extends Controller
             'album' => $album,
             'artist_id' => $request->session()->get('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d'),
             'hashtag' => $hashtag,
+            'cont_artists'=> $contartist,
             'music_like' => 0,
             'listen_count' => 0,
          ]);
@@ -119,6 +126,8 @@ class ArtistController extends Controller
          return redirect('/artprofile')->with('upstate', 'Picture Uploaded Successfully');
 
    }
+
+
    public function viewmusicfun(Request $request){
 
       $music = new Music();
@@ -126,19 +135,58 @@ class ArtistController extends Controller
       $artist = DB::table('music')->where('artist_id', $id)->get();
      
       $dbs = artist::findOrFail($id); 
-      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload];
+      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload,   'profilepic' =>$dbs->profilepic];
       
-      // $musicname = ['music_name' ]
-
-
       return view('/artistpage/viewmusic',['info'=> $info, 'artist'=> $artist]);
    }
+
    public function deletemusicfun(Request $request, $id){
       $delete = DB::table('music')->where('id', $id)->delete();
 
      return redirect('/viewmusic');
    }
+   
    public function viewalbumfun(){
          
    }
+   public function updateartist(Request $request){
+      $music = new Music();
+      $id = $request->session()->get('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+      $artist = DB::table('music')->where('artist_id', $id)->get();
+     
+      $dbs = artist::findOrFail($id); 
+      $info = ['id' =>$dbs->id ,'fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload,   'profilepic' =>$dbs->profilepic];
+      
+
+
+
+
+
+
+      return view('/artistpage/updateart',['info'=> $info, 'artist'=> $artist]);
+
+   }
+   public function updateprofile(Request $request, $id)
+   {
+      $id = $request->session()->get('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+      $dbs = artist::findOrFail($id); 
+      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload, 'profilepic' =>$dbs->profilepic];
+      $profile_pic =  time().'-'.$request->fname.$request->lname.'.'.$request->profilepic->extension();  
+
+      $update = DB::table('artists')
+              ->where('id', $id)
+              ->update(['fname' => request('fname'),
+                        'lname' => request('lname'),
+                        'phonenumber' => request('phonenumber'),
+                        'password' => Hash::make(request('password')),
+                        'profilepic' => $profile_pic,
+                    ]);
+      $pro = $request->profilepic->move(public_path('imgs/uploads/art-profile-pic'),$profile_pic);      
+      // $musicpic = $request->musicpic->move(public_path('imgs/uploads/art-music-pic'),$music_pic);            
+           
+         return redirect('/artprofile');
+   
+   }
+        
+
 }
