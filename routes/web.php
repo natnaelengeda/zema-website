@@ -27,7 +27,7 @@ use App\Http\Controllers\LiveSearch;
 
 // Main Page
 Route::get('/', [MainController::class, 'index' ])->name('index');
-Route::get('/home', [MainController::class, 'home'])->name('home');
+Route::get('/home', [MainController::class, 'home'])->name('home')->middleware();
 Route::get('/news', [MainController::class, 'news'])->name('news');
 Route::get('/artist',[MainController::class, 'artist'])->name('artist');
 Route::get('/album', [MainController::class,'album'])->name('album');
@@ -50,7 +50,7 @@ Route::post('/updateprofile/{id}', [MainController::class, 'updateprofile']);
 // Route::get('/live_search', [LiveSearch::class, 'index'])
 Route::get('/live_search', [LiveSearch::class, 'action']);
 
-Route::get('/download', [DownloadController::class, 'index']);
+Route::get('/download/{id}', [DownloadController::class, 'index']);
 
 // Artist Page
 Route::get('/toartist',[ArtistController::class, 'index'])->name('tartist');
@@ -95,8 +95,9 @@ Route::get('/admin/music', [AdminController::class, 'music']);
 Route::get('admin/feedback', [AdminController::class, 'feedback']);
 
 // Admin Delete
-Route::delete('/admin/user/delete/{id}', [AdminController::class, 'deleteuser'])->name('deleteuser');
-Route::delete('/artist/delete/{id}', [AdminController::class, 'deleteartist']);
+Route::delete('/admin/deleteuser/{id}', [AdminController::class, 'deleteuser'])->name('deleteuser');
+Route::delete('/admin/deleteartist/{id}', [AdminController::class, 'deleteartist']);
+Route::delete('/adeletemusic/{id}', [AdminController::class, 'deletemusic']);
 Route::delete('/feedback/delete/{id}', [AdminController::class, 'deletefeed']);
 
 // Admin Signout
@@ -111,6 +112,10 @@ Route::get('/fetchmusic', [MusicController::class, 'fetchmusic']);
 Route::get('/fetchsingle/5', [MusicController::class, 'fetchsingle']);
 Route::post('/likemusic/{id}/{id2}', [MusicController::class, 'likemusic'])->name('likem');
 Route::post('/followartist/{id}', [MusicController::class, 'followartist'])->name('folowart');
+Route::get('/playmusic', [MusicController::class, 'playmusic']);
+
+Route::post('/liked_music', [MusicController::class, 'sendlike'])->name('likemus');
+Route::get('/listen_music/{id}', [MusicController::class, 'listen']);
 
 // Sessions 
 Route::get('session/get',[SessionController::class, 'accessSessionData']);

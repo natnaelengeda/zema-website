@@ -14,7 +14,7 @@
         </div>
     </div>
     <div>
-        
+         
 <div class="relative h-96 overflow-x-auto shadow-md sm:rounded-lg py-5  scrollbar-thin scrollbar-thumb-maincolor scrollbar-track-gray-300 overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-x-hidden dark:scrollbar-thumb-gray-800 dark:scrollbar-track-gray-500">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
@@ -58,7 +58,7 @@
         
             </td>
             <td class="px-6 py-4 text-right">
-               <form action="/deleteuser/{{ $musics->id }}" method="POST">
+               <form action="/adeletemusic/{{ $musics->id }}" method="POST">
                     @csrf  
                     @method('DELETE')
                     <button class="font-medium text-red-600 :text-blue-500 hover:underline">Delete</button>

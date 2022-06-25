@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    
- 
     public function login(){
 
         return view('admin/login');
@@ -74,8 +72,10 @@ class AdminController extends Controller
     }
     
     public function deleteuser($id){
+
         $delete = DB::table('users')->where('id', $id)->delete();
         User::where('id', $id)->firstOrFail()->delete();
+
         return redirect('/admin/user');
         
     }
@@ -92,6 +92,8 @@ class AdminController extends Controller
         $music = Music::all();
         $user_session = $request->session()->get('login_Admin_59ba36addc2b2f9401580f014c7f58ea4e30989d');
         $admin = Admin::findOrfail($user_session);
+
+
 
 
         return view('admin/music', ['music' =>$music, 'admin' => $admin]);
@@ -127,28 +129,27 @@ class AdminController extends Controller
         
         $user_session = $request->session()->get('login_Admin_59ba36addc2b2f9401580f014c7f58ea4e30989d');
         $admin = Admin::findOrfail($user_session);
+        
 
 
 
         return view('/admin/postnews',['admin' => $admin]);
     }
 
-
-
-
-
-
-
-
-
     public function deleteartist($id){
-        $delete = DB::table('artist')->where('id', $id)->delete();
+        // $delete = DB::table('artists')->where('id', $id)->delete();
+        // $delete = DB::table('users')->where('id', $id)->delete();
+        Artist::where('id', $id)->firstOrFail()->delete();
+        return redirect('/admin/artist');
+    }
+    public function deletemusic($id){
+        Music::where('id' , $id)->firstOrFail()->delete();
 
-        return redirect('/admin/user');
+        return redirect('/admin/music');
     }
     public function deletefeed($id){
         $delete = DB::table('feedback')->where('id',$id)->delete();
 
-        return redirect('/admin');
+        return redirect('/admin/feedback');
     }
 }

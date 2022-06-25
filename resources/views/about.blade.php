@@ -20,4 +20,5 @@
     </div>
   </section>
      {{-- <x-mplayer />    --}}
+    {{-- <x-mmplayer/> --}}
 @endsection

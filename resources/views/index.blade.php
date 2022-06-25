@@ -97,7 +97,7 @@
             <h1 class="text-center font-bold text-xl m-5 text-maincolor">Weekly Top #15</h1>
             <ul class="space-y-2">
             @foreach($musics as $music)
-            <li class="sidebutton" value="{{ $music->id }}">
+            <li class="sidebuttonclicked" value="{{ $music->id }}">
             <button id=""  class="w-full  flex items-center p-2 text-base font-normal text-gray-900 rounded-lg :text-white hover:bg-gray-100 :hover:bg-gray-700 cursor-pointer">
             <svg class="w-10 text-maincolor ml-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
             <div class="flex flex-col justify-end items-start ml-5">
@@ -131,7 +131,7 @@
                           <div class="flex flex-nowrap lg:ml-5 md:ml-20 ml-10 ">
                               @foreach($newreal as $content)
                               <div class="inline-block px-3 cursor-pointer">
-                                    <div class="w-auto h-full max-w-xs  overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                                    <div class="mainpageplay w-auto h-full max-w-xs  overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out" value="{{ $content->id }}">
                                       <div class="w-44">
                                         <img src="imgs/uploads/art-music-pic/{{$content->music_image}}" alt="Reflection Album Art">
                                         <p class="text-center">{{ $content->music_name }}</p>
@@ -228,9 +228,7 @@
             <div class="flex justify-center">
 
             <a href="/session/set"  class="bg-white text-maincolor w-32 h-12 text-xl p-2 rounded-lg shadow-sm hover:shadow-xl text-center">Start</a>
-
-            {{-- <button id="toartist" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Start</button> --}}
-            {{-- <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button> --}}
+          
             </div>
             </div>
             <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
@@ -291,5 +289,7 @@
 </div>
 </div> <!-- First Section End-->
 {{-- <x-musicplayer/> --}}
+<x-mmplayer/>
+
 <x-footermine/>
 @endsection

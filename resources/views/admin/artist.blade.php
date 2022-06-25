@@ -53,7 +53,7 @@
         
             </td>
             <td class="px-6 py-4 text-right">
-               <form action="/deleteuser/{{ $artists->id }}" method="POST">
+               <form action="/admin/deleteartist/{{ $artists->id }}" method="POST">
                                 @csrf  
                                 @method('DELETE')
                                 <button class="font-medium text-red-600 :text-blue-500 hover:underline">Delete</button>

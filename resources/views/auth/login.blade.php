@@ -3,14 +3,14 @@
 @section('login')
 
 <div class="flex items-center  w-[55%] m-auto mt-10  h-[30rem] border border-gray-100 shadow-lg">
-    <div class="w-1/2 relative  h-full overflow-hidden">
+    <div class="hidden md:block w-1/2 relative  h-full overflow-hidden">
         <img class="w-auto h-full" src="imgs/randimgs/musicimg.jpg" alt="Music Image">
     </div>
-    <div class=" w-1/2 h-full py-7">
+    <div class="w-full md:w-1/2 h-full py-7">
             <h1 id="zname" class="text-center text-4xl text-gray-600">Zema</h1>
 
             <h1 class="text-center mt-7 text-xl font-bold text-gray-400">Welcome to Zema</h1>
-            <div class="w-[80%] m-auto mt-10 h-auto">
+            <div class="w-full md:w-[80%] m-auto mt-10 h-auto">
            
                     
 

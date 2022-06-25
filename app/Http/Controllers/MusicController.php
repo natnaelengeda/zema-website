@@ -24,7 +24,7 @@ class MusicController extends Controller
         $artists = Artist::findorFail($id);
         $music = DB::table('music')->where('artist_id', $id)->get();
        
-        return view('/musicop/showtracks',['artist' => $artists, 'music' => $music]);
+        return view('/showtracks',['artist' => $artists, 'music' => $music]);
     }
     public function musics(){
         $music = DB::table('music')->get();
@@ -33,9 +33,6 @@ class MusicController extends Controller
     }
     public function fetchmusic(){
         $music = Music::findOrFail(11);
-
-        
-
 
         return response()->json([
             'music' =>$music,
@@ -54,7 +51,7 @@ class MusicController extends Controller
         ]);
     } 
 
-    public function likemusic(Request $request, $id, $id2){
+    public function viewlike(Request $request, $id, $id2){
         
         $userSessionId = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
         $musicId = $id;
@@ -77,5 +74,33 @@ class MusicController extends Controller
         $rt = '/showtracks/'.$id;
 
         return redirect($rt);
+    }
+    public function playmusic(Request $request){
+        $music = DB::table('music')
+                    ->select('music_file')
+                    ->get();
+       
+
+        // print_r($music);
+
+        echo $music;
+        
+    }
+    public function sendlike(Request $request){
+
+        return response();
+    }
+    public function listen($id){
+        $nid = $_GET['id'];
+        $music = Music::findOrFail($nid);
+        $add = $music->listen_count;
+        $smusic = $music->music_name;
+        $update = DB::table('music')
+                ->where('id',$nid)
+                ->update([ 'listen_count' => ++$add
+                ]);
+
+       return response($music);
+    
     }
 }

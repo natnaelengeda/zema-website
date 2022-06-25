@@ -79,15 +79,22 @@ class ArtistController extends Controller
      {  
       $id = $request->session()->get('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d');
       $dbs = artist::findOrFail($id); 
-      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload, 'profilepic' =>$dbs->profilepic];
+      $musics = DB::table('music')->where('artist_id', $id)->get();
+      $musicnum = count($musics);
+      $follow = DB::table('follow_artists')->where('artist_id', $id)->get();
+      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload, 'profilepic' =>$dbs->profilepic, 'musics' => $musicnum, 'follow' => count($follow)];
 
-        return response(view('/artistpage/profile',['info'=> $info]));
+
+         return response(view('/artistpage/profile',['info'=> $info]));
      }
 
      public function uploadmusicpage(Request $request){
       $id = $request->session()->get('login_Artist_59ba36addc2b2f9401580f014c7f58ea4e30989d');
       $dbs = artist::findOrFail($id); 
-      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload,  'profilepic' =>$dbs->profilepic];
+      $musics = DB::table('music')->where('artist_id', $id)->get();
+      $musicnum = count($musics);
+      $follow = DB::table('follow_artists')->where('artist_id', $id)->get();
+      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload, 'profilepic' =>$dbs->profilepic, 'musics' => $musicnum, 'follow' => count($follow)];
 
      return response(view('/artistpage/uploadmusic',['info'=> $info]));
    }
@@ -126,8 +133,6 @@ class ArtistController extends Controller
          return redirect('/artprofile')->with('upstate', 'Picture Uploaded Successfully');
 
    }
-
-
    public function viewmusicfun(Request $request){
 
       $music = new Music();
@@ -135,9 +140,20 @@ class ArtistController extends Controller
       $artist = DB::table('music')->where('artist_id', $id)->get();
      
       $dbs = artist::findOrFail($id); 
-      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload,   'profilepic' =>$dbs->profilepic];
-      
-      return view('/artistpage/viewmusic',['info'=> $info, 'artist'=> $artist]);
+      $musics = DB::table('music')->where('artist_id', $id)->get();
+      $musicnum = count($musics);
+
+    $follow = DB::table('follow_artists')->where('artist_id', $id)->get();
+      $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload, 'profilepic' =>$dbs->profilepic, 'musics' => $musicnum, 'follow' => count($follow)];
+      // $likes = DB::table('music')->where('artist_id', $id)->get();
+      $listen = 0;
+      foreach($musics as $mus){
+         $listen = $listen + $mus->listen_count;
+      }
+
+
+
+      return view('/artistpage/viewmusic',['info'=> $info, 'artist'=> $artist, 'listen' => $listen]);
    }
 
    public function deletemusicfun(Request $request, $id){
@@ -155,8 +171,13 @@ class ArtistController extends Controller
       $artist = DB::table('music')->where('artist_id', $id)->get();
      
       $dbs = artist::findOrFail($id); 
-      $info = ['id' =>$dbs->id ,'fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload,   'profilepic' =>$dbs->profilepic];
+      // $info = ['id' =>$dbs->id ,'fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload,   'profilepic' =>$dbs->profilepic];
       
+      $musics = DB::table('music')->where('artist_id', $id)->get();
+      $musicnum = count($musics);
+      // $info = ['id' =>$dbs->id ,'fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload, 'profilepic' =>$dbs->profilepic, 'musics' => $musicnum];
+      $follow = DB::table('follow_artists')->where('artist_id', $id)->get();
+      $info = ['id' =>$dbs->id, 'fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload, 'profilepic' =>$dbs->profilepic, 'musics' => $musicnum, 'follow' => count($follow)];
 
 
 

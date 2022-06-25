@@ -21,7 +21,8 @@ class Music extends Model
         'album',
         'music_track_num',
         'artist_id',
-        'hashtag'];
+        'hashtag',
+        'listen_count'];
 
 
 

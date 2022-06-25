@@ -1,34 +1,4 @@
-{{-- 
-    <aside class="w-64  h-screen fixed border-r " aria-label="Sidebar">
-        <div class="overflow-y-auto py-4 px-3 bg-gray-100 rounded :bg-gray-800">
-            <center>
-                <div class="rounded-full w-32">
-                    <img class="rounded-full" src="/imgs/uploads/art-profile-pic/{{$info['profilepic']}}" alt="Profile Pics">
-                </div>
-            </center>
-            <div class="w-full flex justify-start gap-2 px-2 my-3">
-                <p>{{ $info['fname'] }}</p>
-                <p>{{ $info['lname'] }}</p>  
-            </div>
-            <div class="w-full px-2 my-3">
-                <p>{{ $info['uname'] }}</p>
-            </div>
-            <div class="w-full px-2 my-3">
-                <p>{{ $info['email']}}</p>
-            </div>
-            <div class="w-full px-2 my-3">
-                <p>{{ $info['phonenumber']}}</p>
-            </div>
-            <hr class="border border-gray-300">
-            <div class="w-full px-2 my-3">
-                <p>{{ $info['uploadmusic']}}</p>
-            </div>
-            <div class="w-full px-2 my-3">
-                <p>{{ $info['uploadalbum']}}</p>
-            </div>
-        </div>
-    </aside>
-         --}}
+
 <aside class="w-[20%] mx-5 mt-5 " aria-label="Sidebar">
     <div class="overflow-y-auto py-4 px-3 bg-white rounded-3xl border border-gray-300 shadow-2xl dark:bg-gray-800">
         <ul class="space-y-2">
@@ -75,14 +45,14 @@
 
                 <p class="text-md">Uploaded Music: </p>
             </div>    
-            <p class="text-gray-600">{{ $info['uploadalbum'] }}</p>
+            <p class="text-gray-600">{{ $info['musics'] }}</p>
         </li>
         <hr class="border border-gray-300">
         <li class="sideprofile">
             <div class="flex gap-2">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
 
-                <p class="text-md">Uploaded Album: </p>
+                <p class="text-md">Followers: {{ $info['follow'] }}</p>
             </div>    
             <p class="text-gray-600">{{ $info['uploadalbum'] }}</p>
         </li>

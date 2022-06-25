@@ -32,19 +32,7 @@ artistsign.on("click", function(e){
 artlog.on("click", function(e){
     window.location = "/artistlog";
 })
-    // $path = $(location).attr('pathname');
-    // if($path == "/artupload" )
-    // {
-    //     footer.addClass('hidden');
-    // }
-  
-    // $('#android').on('click',function(e){
-    //     alert('clicked');
-//    / });
-// 
-
-
-
+   
 
 
 

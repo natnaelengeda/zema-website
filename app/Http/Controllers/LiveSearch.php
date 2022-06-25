@@ -48,7 +48,7 @@ class LiveSearch extends Controller
        foreach($data as $row)
        {
         $output .= '
-        <li class="p-4 cursor-pointer hover:bg-gray-200 rounded-b-xl">
+        <li class="p-4 cursor-pointer hover:bg-gray-200 rounded-b-xl listclicked" value="'.$row->music_file.'">
             <p>'.$row->music_name.'</p>
         </li>
         ';
