@@ -46,9 +46,54 @@ class MainController extends Controller
         $followingarts = DB::table('follow_artists')->where('user_id', $user->id)->get();
         $likedmus = DB::table('newlike_music')->where('user_id', $user->id)->get();
         $orderedmusic = Music::orderBy('listen_count', 'DESC')->get();
-       
+        
+        $artist1 = Artist::findOrFail(6);
+        $artist2 = Artist::findOrFail(7);
+        $artist3 = Artist::findOrFail(8);
 
-        return view('home', ['recs' => $countRecents, 'ralbum' => $rophnanAlbum, 'count' => $count, 'user' => $user, 'follow' => $followingarts,'like' => $likedmus ,'artists' => $artists, 'music' => $music, 'order' =>$orderedmusic]);
+        // $top = Music::orderBy('id', 'DESC')->get();
+        $tmusic1 = DB::table('music')->where('artist_id', 6)->get();
+        $tmusic2 = DB::table('music')->where('artist_id', 7)->get();
+        $tmusic3 = DB::table('music')->where('artist_id', 8)->get();
+
+        $listen1 = 0;
+        $listen2 = 0;
+        $listen3 = 0;
+    
+        foreach($tmusic1 as $mus){
+         $listen1 = $listen1 + $mus->listen_count;
+        }
+        foreach($tmusic2 as $mus){
+            $listen2 = $listen2 + $mus->listen_count;
+        }
+        foreach($tmusic3 as $mus){
+         $listen3 = $listen3 + $mus->listen_count;
+        }   
+        
+        if($listen1 > $listen2){
+            if($listen1 > $listen3){
+                $topart = $artist1;
+                $toplist = $listen1;
+                $topmus = $tmusic1;
+            }
+            else{
+                $topart = $artist3;
+                $toplist = $listen3;
+                $topmus = $tmusic3;           
+            }
+        }
+        else{
+            if($listen2 > $listen3){
+                $topart = $artist2;
+                $toplist = $listen2;
+                $topmus = $tmusic2;
+            }
+        }
+
+
+
+
+        return view('home', ['recs' => $countRecents, 'ralbum' => $rophnanAlbum, 'count' => $count, 'user' => $user, 'follow' => $followingarts,'like' => $likedmus ,'artists' => $artists, 'music' => $music, 'order' =>$orderedmusic, 'top' => $topart, 'listen' => $toplist, 'topmusic' => $topmus]);
     }
     public function news(){
         $post = ['img' => 'music-album.png', 'header' => 'Try Sending', 'para' => 'The Long Paragraph'];

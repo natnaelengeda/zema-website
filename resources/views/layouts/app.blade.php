@@ -298,7 +298,7 @@
   width: 20px;
   height: 20px;
   /* transform: translate(-50%, 50%); */
-}
+/* } */
 
 .img-container img {
   border-radius: 50%;

@@ -143,7 +143,7 @@ class ArtistController extends Controller
       $musics = DB::table('music')->where('artist_id', $id)->get();
       $musicnum = count($musics);
 
-    $follow = DB::table('follow_artists')->where('artist_id', $id)->get();
+       $follow = DB::table('follow_artists')->where('artist_id', $id)->get();
       $info = ['fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload, 'profilepic' =>$dbs->profilepic, 'musics' => $musicnum, 'follow' => count($follow)];
       // $likes = DB::table('music')->where('artist_id', $id)->get();
       $listen = 0;
@@ -178,11 +178,7 @@ class ArtistController extends Controller
       // $info = ['id' =>$dbs->id ,'fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload, 'profilepic' =>$dbs->profilepic, 'musics' => $musicnum];
       $follow = DB::table('follow_artists')->where('artist_id', $id)->get();
       $info = ['id' =>$dbs->id, 'fname' => $dbs->fname ,'lname' => $dbs->lname, 'uname' => $dbs->uname, 'email' => $dbs->email, 'phonenumber' => $dbs->phonenumber, 'uploadmusic' => $dbs->musicUpload, 'uploadalbum' => $dbs->albumUpload, 'profilepic' =>$dbs->profilepic, 'musics' => $musicnum, 'follow' => count($follow)];
-
-
-
-
-
+      
 
       return view('/artistpage/updateart',['info'=> $info, 'artist'=> $artist]);
 

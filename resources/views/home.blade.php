@@ -11,26 +11,15 @@
                 <div class="w-[90%] m-auto  mt-32 mb-2 bg-gradient-to-tr from-gradientcol via-gradientcol2 to-gradientcol3 border border-gray-300 h-64 relative flex-end rounded-[40px] flex justify-between shadow-xl">
                     <div class="text-white mx-10 relative bottom-0 align-bottom mt-24">
                         <p class="font-bold text-[40px]">Rophnan</p>
-                        <p>000,000,000 Weekly Listeners</p>
+                        <p>{{ $listen }} Weekly Listeners</p>
                     </div>
                     <div class="relative w-96 -mt-32">
-                        <img src="imgs/artists/rophnan.png" alt="Rophnan Picture">
+                        <img src="imgs/toppage/{{ $top->topimage }}" alt="Rophnan Picture">
                     </div>
                 </div>
             </div>
             <hr class="bg-gray-300 w-[70%] border border-gray-300">
-            <div class="w-full  mt-1 h-auto flex gap-5 overflow-auto scrollbar-thin  scroll-smooth scrollbar-thumb-maincolor">
-               @for($i=0 ; $i<$recs-3; $i++)
-               <div class=" w-auto">
-                    <div class="w-44">
-                        <img src="imgs/albumart/reflection.png" alt="Reflection Album Art">
-                    </div>
-                    <div class="">
-                        <p class="text-center">Reflection</p>
-                    </div>
-                </div>
-                @endfor
-            </div>
+           
         <hr class="border border-gray-400">
         <div class="h-96">
                 <div>
@@ -46,7 +35,7 @@
                 </tr>
                 
                 
-                @foreach($order as $musics)
+                @foreach($topmusic as $musics)
                 @if($count == 5)
                 @break
                 @else
@@ -54,7 +43,7 @@
                     <td class=" " ><p class="ml-3">{{$count++}}</p></td>
                     <td class="">
                     <div class="flex items-center ml-5">
-                        <img class="w-16" src="imgs/albumart/reflection.png" alt="" />
+                        <img class="w-16" src="imgs/uploads/art-music-pic/{{ $musics->music_image }}" alt="" />
                         <p class="relative text-center ml-12 -mr-12">{{ $musics->music_name}}</p>
                     </div>
                     </td>
@@ -65,7 +54,7 @@
                     <p class="text-center">3:20</p>
                     </td>
                     <td class="">
-                    <p class="text-center">Reflection</p>
+                    <p class="text-center">{{ $musics->album }}</p>
                     </td>
                 </tr>
                 @endif
