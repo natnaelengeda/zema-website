@@ -54,7 +54,7 @@ class ArtistController extends Controller
             'email' => $request->email,
             'phonenumber' => $request->phonenumber,
             'gender' => $request->gender,
-
+ 
             'password' => Hash::make($request->password),
 
         ]);
