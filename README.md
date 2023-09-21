@@ -9,10 +9,6 @@ Zema is a Music Streaming Platform, that lets you upload music and listen it fro
 ![App Screenshot](https://i.ibb.co/zb8tFVB/photo-2023-09-21-14-32-52.jpg)
 
 
-## Appendix
-
-Any additional information goes here
-
 
 ## Authors
 
