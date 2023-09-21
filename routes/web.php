@@ -26,11 +26,11 @@ use App\Http\Controllers\LiveSearch;
 
 
 // Main Page
-Route::get('/', [MainController::class, 'index' ])->name('index');
+Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/home', [MainController::class, 'home'])->name('home')->middleware();
 Route::get('/news', [MainController::class, 'news'])->name('news');
-Route::get('/artist',[MainController::class, 'artist'])->name('artist');
-Route::get('/album', [MainController::class,'album'])->name('album');
+Route::get('/artist', [MainController::class, 'artist'])->name('artist');
+Route::get('/album', [MainController::class, 'album'])->name('album');
 Route::get('/about', [MainController::class, 'about'])->name('about');
 
 Route::get('/library', [MainController::class, 'lib']);
@@ -53,25 +53,25 @@ Route::get('/live_search', [LiveSearch::class, 'action']);
 Route::get('/download/{id}', [DownloadController::class, 'index']);
 
 // Artist Page
-Route::get('/toartist',[ArtistController::class, 'index'])->name('tartist');
-Route::get('/artistsign',[ArtistController::class, 'sign'])->name('asign');
-Route::get('/artistlog',[ArtistController::class, 'log'])->name('alogin');
+Route::get('/toartist', [ArtistController::class, 'index'])->name('tartist');
+Route::get('/artistsign', [ArtistController::class, 'sign'])->name('asign');
+Route::get('/artistlog', [ArtistController::class, 'log'])->name('alogin');
 
-Route::post('/asignup',[ArtistController::class, 'asignup']);
+Route::post('/asignup', [ArtistController::class, 'asignup']);
 Route::post('/alogin', [ArtistController::class, 'alogin']);
 
-Route::get('/artprofile',[ArtistController::class, 'profile'])->name('artprofile')->middleware();
+Route::get('/artprofile', [ArtistController::class, 'profile'])->name('artprofile')->middleware();
 Route::get('/artupload', [ArtistController::class, 'uploadmusicpage'])->name('uploadmus')->middleware();
 
-Route::post('/uploadmusic',[ArtistController::class, 'uploadmusicfun']);
-Route::delete('/deletemusic/{id}',[ArtistController::class, 'deletemusicfun']);
+Route::post('/uploadmusic', [ArtistController::class, 'uploadmusicfun']);
+Route::delete('/deletemusic/{id}', [ArtistController::class, 'deletemusicfun']);
 
-Route::get('/viewmusic',[ArtistController::class, 'viewmusicfun']);
-Route::get('/viewalbum',[ArtistController::class, 'viewalbumfun']);
+Route::get('/viewmusic', [ArtistController::class, 'viewmusicfun']);
+Route::get('/viewalbum', [ArtistController::class, 'viewalbumfun']);
 
 Route::get('/updateart', [ArtistController::class, 'updateartist']);
 
-Route::get('/showtracks/{id}',[MusicController::class, 'showtracks']);
+Route::get('/showtracks/{id}', [MusicController::class, 'showtracks']);
 
 // Update Artist Profile
 Route::post('updateartprofile/{id}', [ArtistController::class, 'updateprofile']);
@@ -90,7 +90,7 @@ Route::get('/postnews', [AdminController::class, 'pnews']);
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/dashboard', [AdminController::class, 'dash']);
 Route::get('/admin/user', [AdminController::class, 'user']);
-Route::get('/admin/artist',[AdminController::class, 'artist']);
+Route::get('/admin/artist', [AdminController::class, 'artist']);
 Route::get('/admin/music', [AdminController::class, 'music']);
 Route::get('admin/feedback', [AdminController::class, 'feedback']);
 
@@ -118,16 +118,16 @@ Route::post('/liked_music', [MusicController::class, 'sendlike'])->name('likemus
 Route::get('/listen_music/{id}', [MusicController::class, 'listen']);
 
 // Sessions 
-Route::get('session/get',[SessionController::class, 'accessSessionData']);
-Route::get('session/set',[SessionController::class, 'storeSessionData']);
-Route::get('session/remove',[SessionController::class, 'deleteSessionData'])->name('artistendsession');
-Route::get('session/all',[SessionController::class, 'sessionall']);
+Route::get('session/get', [SessionController::class, 'accessSessionData']);
+Route::get('session/set', [SessionController::class, 'storeSessionData']);
+Route::get('session/remove', [SessionController::class, 'deleteSessionData'])->name('artistendsession');
+Route::get('session/all', [SessionController::class, 'sessionall']);
 Route::get('/sessionart', [SessionController::class, 'sessionart']);
 
-Route::get('/test', function() {
+Route::get('/test', function () {
     return view('other.test');
 });
-Route::get('/guest',function(){
+Route::get('/guest', function () {
     return view('layouts.guest');
 });
 
@@ -135,4 +135,4 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
